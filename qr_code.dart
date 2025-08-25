@@ -4,14 +4,14 @@ import 'helpers.dart';
 void main(){
   QrCodeGenerator qrGen = QrCodeGenerator();
 
-  qrGen.createQrCode('www.oye.com', 2);
+  qrGen.createQrCode('www.oye.com', 2, fileName: 'qrCode');
 }
 
 class QrCodeGenerator {
 
   //https://de.m.wikipedia.org/wiki/Datei:QR_Code_V4_structure_example.svg
-  void createQrCode(String message, int version){
-    if(version > 5 || version < 1) throw FormatException('Expected version between (2, 5)');
+  void createQrCode(String message, int version, {String fileName = 'qr_code'}){
+    if(version > 5 || version < 2) throw FormatException('Expected version between (2, 5)');
 
     int dimensions = 17 + 4 * version;
 
@@ -31,7 +31,7 @@ class QrCodeGenerator {
     applyMask(bitmap, version);
     
 
-    bitmap.saveBitmap('qr_code.pbm');
+    bitmap.saveBitmap(fileName + '.pbm');
 
   }
 
