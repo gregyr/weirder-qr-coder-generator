@@ -1,4 +1,4 @@
-### Not a serious Qr-Code Generator
+## Not a serious Qr-Code Generator
 
 Very inefficient and spaghetti code that works and can generate Qr-Codes
 versions 2-5.
